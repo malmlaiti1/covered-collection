@@ -1,0 +1,27 @@
+# macOS
+.DS_Store
+
+# Xcode build artifacts
+build/
+DerivedData/
+*.xcuserstate
+*.xcuserdatad/
+*.xcscmblueprint
+*.xccheckout
+
+# User-specific Xcode state inside the generated project
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+
+# XcodeGen regenerates the project from project.yml — don't commit it.
+LaylaAndCo.xcodeproj/
+
+# Swift / SwiftPM
+.build/
+.swiftpm/
+Package.resolved
+
+# Editor
+.vscode/
+.idea/
+*.swp
