@@ -37,3 +37,33 @@ targets:
         TARGETED_DEVICE_FAMILY: "1"
         ENABLE_PREVIEWS: YES
         SWIFT_EMIT_LOC_STRINGS: YES
+
+  CoveredCollectionTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: CoveredCollectionTests
+        excludes:
+          - "**/.DS_Store"
+    dependencies:
+      - target: CoveredCollection
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.coveredcollection.CoveredCollectionTests
+        GENERATE_INFOPLIST_FILE: YES
+        BUNDLE_LOADER: "$(TEST_HOST)"
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/CoveredCollection.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CoveredCollection"
+
+schemes:
+  CoveredCollection:
+    build:
+      targets:
+        CoveredCollection: all
+        CoveredCollectionTests: [test]
+    test:
+      targets:
+        - CoveredCollectionTests
+      gatherCoverageData: true
+      coverageTargets:
+        - CoveredCollection
